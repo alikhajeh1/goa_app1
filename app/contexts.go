@@ -3,9 +3,8 @@
 //
 // Generated with goagen v0.0.1, command line:
 // $ goagen
-// --out=$(GOPATH)/src/github.com/alikhajeh1/goa_app1
 // --design=github.com/alikhajeh1/goa_app1/design
-// --pkg=app
+// --out=$(GOPATH)/src/github.com/alikhajeh1/goa_app1
 //
 // The content of this file is auto-generated, DO NOT MODIFY
 //************************************************************************//
@@ -49,6 +48,6 @@ func NewShowNumbersContext(ctx context.Context, service *goa.Service) (*ShowNumb
 
 // OK sends a HTTP response with status code 200.
 func (ctx *ShowNumbersContext) OK(r *GoaExampleNumbers) error {
-	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.goa.example.numbers")
+	ctx.ResponseData.Header().Set("Content-Type", "application/vnd.goa.example.numbers+json")
 	return ctx.Service.Send(ctx.Context, 200, r)
 }
