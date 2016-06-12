@@ -1,0 +1,60 @@
+consumes:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+definitions:
+  GoaExampleNumbers:
+    description: A list of number
+    example:
+      numbers:
+      - 3.1733336e+14
+    properties:
+      numbers:
+        description: Numbers
+        example:
+        - 7.558453e+18
+        - 7.1277216e+18
+        items:
+          example: 9.0609775e+18
+          format: int64
+          type: integer
+        type: array
+    title: 'Mediatype identifier: application/vnd.goa.example.numbers+json'
+    type: object
+host: localhost:8080
+info:
+  description: A simple goa service
+  title: Example app 1
+  version: ""
+paths:
+  /numbers:
+    get:
+      description: Get prime numbers
+      operationId: numbers#show
+      parameters:
+      - description: Prime numbers less than this number are calculated
+        in: query
+        name: lessThan
+        required: false
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/GoaExampleNumbers'
+      schemes:
+      - http
+produces:
+- application/json
+- application/xml
+- application/gob
+- application/x-gob
+responses:
+  OK:
+    description: OK
+    schema:
+      $ref: '#/definitions/GoaExampleNumbers'
+schemes:
+- http
+swagger: "2.0"
